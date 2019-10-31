@@ -21,15 +21,19 @@ public class playerMove : MonoBehaviour
     private Vector3 movePlayer;
     public float gravity = 9.8f;
     public float fallVelocity;
-    public float jumpForce;
 
+    //salto
+    public float jumpForce;
 
     // camara
     public Camera mainCamera;
     private Vector3 camForward;
     private Vector3 camRight;
 
-    //salto
+    public bool isOnSlope = false;
+    private Vector3 hitNormal;
+    public float slideVelocity;
+    public float slopeForceDown;
 
     // Start is called before the first frame update
     void Start()
@@ -99,5 +103,26 @@ public class playerMove : MonoBehaviour
             fallVelocity -= gravity * Time.deltaTime;
             movePlayer.y = fallVelocity;
         }
+
+        slideDown();
+    }
+
+
+    public void slideDown()
+    {
+        isOnSlope=Vector3.Angle(Vector3.up, hitNormal)>=player.slopeLimit;
+
+        if (isOnSlope)
+        {
+            movePlayer.x += ((1f - hitNormal.y) * hitNormal.x) * slideVelocity;
+            movePlayer.z += ((1f - hitNormal.y) * hitNormal.z) * slideVelocity;
+            movePlayer.y += slopeForceDown;
+        }
+
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        hitNormal = hit.normal;
     }
 }

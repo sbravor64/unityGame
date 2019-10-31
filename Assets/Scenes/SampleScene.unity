@@ -432,6 +432,9 @@ MonoBehaviour:
   fallVelocity: 0
   jumpForce: 15.26
   mainCamera: {fileID: 963194227}
+  isOnSlope: 0
+  slideVelocity: 7.32
+  slopeForceDown: -10
 --- !u!143 &601396874
 CharacterController:
   m_ObjectHideFlags: 0
@@ -852,13 +855,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.2766785, y: 0.2854049, z: -0.08644067, w: 0.9135213}
-  m_LocalPosition: {x: -24, y: 17.49, z: -41.28}
+  m_LocalRotation: {x: 0.2898185, y: 0.017538168, z: -0.00531179, w: 0.9569062}
+  m_LocalPosition: {x: -4.3, y: 24.2, z: -49.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 33.7, y: 34.7, z: 0}
+  m_LocalEulerAnglesHint: {x: 33.7, y: 2.1, z: 0}
 --- !u!1 &967817369
 GameObject:
   m_ObjectHideFlags: 0
